@@ -143,15 +143,6 @@ While the one in flask is:
 ```
 This isn't working for the time being. So, GUI is also distorted. Once, flask is being able to access the values from js the project wil be in good shape. Any contributions or suggestions on this will be highly appreciable and willl be taken with gratitude,.
 
-## Contributing
-
-Contributions are always welcome!
-
-Find out an Error or give any suggestion to improve the project.
-
-If you want to add any new features, make a pull request.
-
-ThankYou for your attention.
 ## Errors
 
 The frontend of the model is facing an error yet and is not in the correct form yet. The error is in the flask application. The javascript can get the values from the flask but flask is not accessing the value from javascript. The error encountered is **Error:405** which is method not recognized error and the method I am using is POST method. Note that GET method is recognized correctly. The code used in JS is 
@@ -192,3 +183,13 @@ While the one in flask is:
 ```
 This isn't working for the time being. So, GUI is also distorted. Once, flask is being able to access the values from js the project wil be in good shape. Any contributions or suggestions on this will be highly appreciable and willl be taken with gratitude,.
 
+
+## Contributing
+
+Contributions are always welcome!
+
+Find out an Error or give any suggestion to improve the project.
+
+If you want to add any new features, make a pull request.
+
+ThankYou for your attention.
