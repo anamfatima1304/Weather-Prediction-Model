@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Weather Prediction</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <div class="img"></div>
+    <form class="form" >
+        <!-- Humidity,Wind_Speed,Wind_Bearing,Visibility,Pressure,hour,month -->
+        <!-- 0.89, 3.9284, 204.0, 14.9569, 1015.94, 2, 4 -->
+        <h2>Humidity</h2>
+        <input class="input" type="text" id="in1" class="floatLabel" name="Humidity" value="1">
+
+        <h2>Wind Speed</h2>
+        <input class="input" type="text" id="in2" class="floatLabel" name="Wind_Speed" value="3">
+
+        <h2>Wind Bearing</h2>
+        <input class="input" type="text" id="in3" class="floatLabel" name="Wind_Bearing" value="204">
+
+        <h2>Visibility</h2>
+        <input class="input" type="text" id="in4" class="floatLabel" name="Visibility" value="14">
+
+        <h2>Pressure</h2>
+        <input class="input" type="text" id="in5" class="floatLabel" name="Pressure" value="1015">
+
+        <h2>Hour</h2>
+        <input class="input" type="text" id="in6" class="floatLabel" name="Hour" value="2">
+        
+        <h2>Month</h2>
+        <input class="input" type="text" id="Month" class="floatLabel" name="Month" value="2">
+
+        <!-- <h2>Month</h2>
+        <div>
+            <select class="Summary" name="Month" id="Month">
+                <option value="" disabled="disabled" selected="selected">Choose the Month</option>
+                <option>January</option>
+                <option>Febraury</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>August</option>
+                <option>November</option>
+                <option>December</option>
+            </select>
+        </div> -->
+
+        <h2>Summary</h2>
+        <div>
+            <select class="Summary" name="weather_summary" id="weather_summary">
+                <option value="" disabled="disabled" selected="selected">Choose the Summary</option>
+                <option>Cloudy</option>
+                <option>Sunny</option>
+            </select>
+        </div>
+
+        <h2>Precip_Type</h2>
+        <div>
+            <select class="Summary" name="Precip" id="Precip">
+                <option value="" disabled="disabled" selected="selected">Choose a Precip Type</option>
+                <option>Rain</option>
+                <option>Snow</option>
+            </select>
+        </div>
+
+        <button class="submit" onclick="onClickedEstimateTemperature()" type="button">Estimate Temperature</button>
+            <h2></h2>
+            <div id="estTemperature" class="result">	<h2></h2> </div>
+        </div>
+</body>
+
+</html>
