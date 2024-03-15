@@ -1,4 +1,5 @@
 
+
 function onClickedEstimateTemperature() {
   console.log("Estimate Temperature button clicked");
   var Humidity = document.getElementById("in1");
@@ -12,20 +13,26 @@ function onClickedEstimateTemperature() {
   // month = (months.indexOf(month))+1;
   var Summary = document.getElementById("weather_summary");
   var Precip = document.getElementById("Precip");
-  // var url = "http://127.0.0.1:5000/predict_home_price"; //Use this if you are NOT using nginx which is first 7 tutorials
-  var url = "http://127.0.0.1:5000/predict_weather"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
 
-  var data = {Humidity: parseFloat(Humidity.value),
-    Wind_Speed: parseFloat(Wind_Speed.value),
-    Wind_Bearing: parseFloat(Wind_Bearing.value),
-    Visibility: parseFloat(Visibility.value),
-    Pressure: parseFloat(Pressure.value),
-    hour: parseFloat(hour.value),
-    month: parseFloat(month.value),
-    Summary: Summary.value,
-    Precip_Type: Precip.value};
+  // var url = "http://127.0.0.1:5000/predict_weather"; 
 
-    $.get(url,function(data, status) {
+  var output = {Humidity: parseFloat(Humidity.value), Wind_Speed: parseFloat(Wind_Speed.value), Wind_Bearing: parseFloat(Wind_Bearing.value), Visibility: parseFloat(Visibility.value), Pressure: parseFloat(Pressure.value), hour: parseFloat(hour.value), month: parseFloat(month.value),Summary: Summary.value, Precip_Type: Precip.value};
+
+    console.log(output);
+  const content = JSON.stringify(output);
+  const blob = new Blob([content], { type: 'text/plain' });
+  const url = window.URL.createObjectURL(blob);
+
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = "Weather_Prediction_Variable_File.txt";
+  link.click();
+
+  // Revoke object URL to avoid memory leaks
+  window.URL.revokeObjectURL(url);
+
+  var url2 = "http://127.0.0.1:5000/predict_weather"; 
+    $.get(url2,function(data, status) {
       console.log("got response for predict_weather request");
       if(data) {
           var Summary_data = data.estimated_temperature;
@@ -35,17 +42,17 @@ function onClickedEstimateTemperature() {
   });
   // $.post(url, JSON.stringify({
   //   Humidity: parseFloat(Humidity.value),
-  //   Wind_Speed: parseFloat(Wind_Speed.value),
-  //   Wind_Bearing: parseFloat(Wind_Bearing.value),
-  //   Visibility: parseFloat(Visibility.value),
-  //   Pressure: parseFloat(Pressure.value),
-  //   hour: parseFloat(hour.value),
-  //   month: parseFloat(month.value),
-  //   Summary: Summary.value,
-  //   Precip_Type: Precip.value
+  //   // Wind_Speed: parseFloat(Wind_Speed.value),
+  //   // Wind_Bearing: parseFloat(Wind_Bearing.value),
+  //   // Visibility: parseFloat(Visibility.value),
+  //   // Pressure: parseFloat(Pressure.value),
+  //   // hour: parseFloat(hour.value),
+  //   // month: parseFloat(month.value),
+  //   // Summary: Summary.value,
+  //   // Precip_Type: Precip.value
   // }),function(data, status) {
   //     console.log(data.estimated_temperature);
-  //     estPrice.innerHTML = "<h2>" + data.estimated_temperature.toString() + " Lakh</h2>";
+  //     stTemperature.innerHTML = "<h2>" + data.estimated_temperature.toString() + " °C</h2>";
   //     console.log(status);
   // });
 }
